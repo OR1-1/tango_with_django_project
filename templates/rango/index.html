@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+
+{% load static %}
+
 <html>
 
     <head>
@@ -6,9 +9,10 @@
     </head>
 
     <body>
-        <h1>Rango says...</h1>
-        hello world! <strong>{{ boldmessage }}</strong><br />
+        <h1>Including Static Media</h1>
+<!--         hello world! <strong>{{ boldmessage }}</strong><br /> -->
         <a href="/rango/about/">About</a><br />
+        <img alt="Picture of WinLogo" src="{% static "w-brand.png" %}">
     </body>
 
 </html>
