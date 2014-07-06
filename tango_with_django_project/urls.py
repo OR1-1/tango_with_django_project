@@ -12,7 +12,7 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'tango_with_django_project.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
-    url(r'^$', views.index, name='index'),
+    url(r'^$', views.index, name='index'), #should change this to a proper index page to avoid /rango/rango url issue
     url(r'^rango/', include(rango_urls)),
     url(r'^admin/', include(admin.site.urls)),
 )
