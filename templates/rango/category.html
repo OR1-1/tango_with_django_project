@@ -5,8 +5,8 @@
     </head>
 
     <body>
-        {{ category_name }}
         {% if category %}
+            {{ category_name }}
             {% if pages %}
             <ul>
                 {% for page in pages %}
@@ -17,7 +17,7 @@
                 <strong>No pages currntly in Category</strong>
             {% endif %}
         {% else %}
-            The specified category {{ caregory_name }} does not exist!
+            The specified category {{ category_name }} does not exist!
         {% endif %}
     </body>
 </html>
