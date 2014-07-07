@@ -39,6 +39,18 @@ def populate():
         title="Flask",
         url="http://flask.pocoo.org")
 
+    pussy_cat = add_cat("Help", '100', '100')
+
+    add_page(cat=pussy_cat,
+        title="Stack Overflow",
+        url="http://stackoverflow.com/")
+
+    google_cat = add_cat("Google Products", '100', '100')
+
+    add_page(cat=google_cat,
+        title="Google Mail",
+        url="https://mail.google.com/")
+
     # Print out what we have added to the user.
     for c in Category.objects.all():
         for p in Page.objects.filter(category=c):

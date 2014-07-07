@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.template import RequestContext
 from rango.models import Category
 from rango.models import Page
+from utility.url_encoding import *
 
 def index(request):
     #return HttpResponse("Rango says hello world! <a href='/rango/about'>About</a>")
@@ -16,7 +17,7 @@ def index(request):
     context_dict = {'categories': category_list}
 
     for category in category_list:
-        category.url = category.name.replace(' ', '_')
+        category.url = encode(category.name, ' ', '_')
 
     return render_to_response('rango/index.html', context_dict, context)
 
@@ -29,7 +30,7 @@ def about(request):
 def category(request, category_name_url):
     context = RequestContext(request)
 
-    category_name = category_name_url.replace('_', ' ')
+    category_name = encode(category_name_url, '_', ' ')
     context_dict = {'category_name': category_name}
 
     try:
