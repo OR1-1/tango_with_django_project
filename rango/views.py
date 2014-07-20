@@ -34,6 +34,7 @@ def category(request, category_name_url):
 
     category_name = decode_url(category_name_url)
     context_dict = {'category_name': category_name}
+    context_dict['category_name_url'] = category_name_url
 
     try:
         category = Category.objects.get(name=category_name)
