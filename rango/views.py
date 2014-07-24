@@ -81,7 +81,7 @@ def add_page(request, category_name_url):
         if form.is_valid():
             # This time we cannot commit straight away.
             # Not all fields are automatically populated!
-            form.save(commit=False)
+            Page = form.save(commit=False)
 
             # Retrieve the associated Category object so we can add it.
             # Wrap the code in a try block - check if the category actually exists!
