@@ -74,8 +74,6 @@ def add_page(request, category_name_url):
     context = RequestContext(request)
 
     category_name = decode_url(category_name_url)
-    context_dict = {'category_name': category_name}
-    context_dict['category_name_url'] = category_name_url
 
     if request.method == 'POST':
         form = PageForm(request.POST)
@@ -84,7 +82,6 @@ def add_page(request, category_name_url):
             # This time we cannot commit straight away.
             # Not all fields are automatically populated!
             form.save(commit=False)
-            context_dict['form'] = form
 
             # Retrieve the associated Category object so we can add it.
             # Wrap the code in a try block - check if the category actually exists!
@@ -109,4 +106,8 @@ def add_page(request, category_name_url):
     else:
         form = PageForm()
 
-    return render_to_response('rango/add_page.html', context_dict, context)
+    return render_to_response('rango/add_page.html', 
+            {'category_name_url': category_name_url,
+             'category_name': category_name, 
+             'form': form},
+             context)
